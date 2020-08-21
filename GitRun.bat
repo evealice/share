@@ -30,10 +30,11 @@ pause
 exit 
 
 :pushblock
-	set /p gitrun=including GitRun.bat?
+	rem set /p gitrun=including GitRun.bat?
 	echo ------------------------------------------------------- add
-	if "%gitrun%" == "y" (git add *)
-	if NOT "%gitrun%" == "y" (git add * -- :!%CD%\GitRun.bat)
+	git add *
+	rem if "%gitrun%" == "y" (git add *)
+	rem if NOT "%gitrun%" == "y" (git add * -- :!%CD%\GitRun.bat)
 	echo.
 	echo status
 	echo ------
