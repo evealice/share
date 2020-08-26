@@ -15,42 +15,41 @@ for /F "tokens=1,2 delims=: " %%r in ('time /t') do set t=%%r%%s
 git config user.name "ml"
 git config user.email "ml@example.com"
 
-echo ------------------------------------------------------- pull
+echo =======================================================
+echo      pull
+echo -------------------------------------------------------
 git pull
 echo.
-echo status
-echo ------
+echo status:
 git status
-
-set /p push=including push?
-
-if "%push%" == "y" (call :pushblock)
-echo -------------------------------------------------------- done
+echo =======================================================
+echo      add
+echo -------------------------------------------------------
+git add *
+echo.
+echo status:
+git status
+echo =======================================================
+echo      commit
+echo -------------------------------------------------------
+git commit -m %computername%_%d%_%t%
+echo.
+echo status:
+git status
+echo =======================================================
+echo      push
+echo -------------------------------------------------------
+git push origin master
+echo.
+echo status:
+git status
+echo =======================================================
+echo      done
+echo -------------------------------------------------------
 pause
 exit 
 
-:pushblock
-	rem set /p gitrun=including GitRun.bat?
-	echo ------------------------------------------------------- add
-	git add *
-	rem if "%gitrun%" == "y" (git add *)
-	rem if NOT "%gitrun%" == "y" (git add * -- :!%CD%\GitRun.bat)
-	echo.
-	echo status
-	echo ------
-	git status
-	echo ------------------------------------------------------- commit
-	git commit -m %computername%_%d%_%t%
-	echo.
-	echo status
-	echo ------
-	git status
-	echo ------------------------------------------------------- push
-	git push origin master
-	echo.
-	echo status
-	echo ------
-	git status
+
 
 
 
