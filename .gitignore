@@ -1,5 +1,5 @@
 **/AAA/*
 **/GitIgnoreSecret/*
-!**/GitIgnoreSecret/GitIgnoreSecret.txt
+!**/GitIgnoreSecret/DirExists.txt
 **/GitIgnoreNodejs/*
-!**/GitIgnoreNodejs/GitIgnoreNodejs.txt
+!**/GitIgnoreNodejs/DirExists.txt
